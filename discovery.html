@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Discovery - Indus Valley Civilization</title>
+        
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/1a28f22896.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <div id="header">
+            <div id="logo">
+                <p>Indus Valley</p>
+            </div>
+            <a href="index.html" class="inactive">Home</a>
+            <a href="discovery.html" class="active">Discovery</a>
+            <a href="geo.html" class="inactive">Geography</a>
+            <a href="bricks.html" class="inactive">Architecture</a>
+            <a href="artifacts.html" class="inactive">Artifacts</a>
+            <a href="facts.html" class="inactive">Facts</a>
+            <a href="trade.html" class="inactive">Trade</a>
+            <a href="society.html" class="inactive">Society</a>
+            <a href="decline.html" class="inactive">Decline</a>
+            <a href="quiz.html" class="inactive">Quiz</a>
+        </div>
+
+        <div id="discovery-content">
+            <h1 class="section-title">Discovery Timeline</h1>
+            
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-item left" onclick="openModal('railway')"> <!-- Changed from 'masson' -->
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year-badge"><i class="fa-solid fa-train"></i> 1856</div>
+                        <h2>The Railway Incident</h2>
+                        <p>Ancient bricks used as tracks. <br><strong>Click to read more</strong></p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right" onclick="openModal('excavation')"> <!-- Changed from 'railway' -->
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year-badge"><i class="fa-solid fa-person-digging"></i> 1921 & 1922</div>
+                        <h2>Daya Ram Sahni and Rakhaldas Banerji.</h2>
+                        <p>The first encounter with Harappa and Mohenjo-daro. <br><strong>Click to read more</strong></p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left" onclick="openModal('naming')"> <!-- Changed from 'excavation' -->
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="year-badge"><i class="fa-solid fa-clock"></i> 1850s-1900s</div>
+                        <h2>John Marshall</h2>
+                        <p>The one who named it. <br><strong>Click to read more</strong></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <div id="modal-body-text">
+                    </div>
+            </div>
+        </div>
+
+        <script src="discovery.js"></script>
+    </body>
+</html>
