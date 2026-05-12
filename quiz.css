@@ -1,0 +1,164 @@
+html {
+    font-size: 1.2vw; 
+    font-family: 'Public Sans', sans-serif;
+    font-family: 'Public Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Public Sans', sans-serif
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 5%;
+    z-index: 1000;
+    background-color: rgba(26, 20, 15, 0.75);
+    backdrop-filter: blur(1.5rem); 
+    -webkit-backdrop-filter: blur(1.5rem);
+}
+
+#logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#logo p {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.inactive {
+    color: #bfa37e;
+    opacity: 0.8;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.inactive::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #c48e3d;
+    transition: width 0.3s ease; 
+}
+
+.inactive:hover::after {
+    width: 100%;
+}
+
+.inactive:hover {
+    opacity: 1;
+    color: #f2d2a9;
+}
+
+.active {
+    background-color: #c48e3d;
+    color: #000;
+    padding: 0.6rem 1.8rem;
+    border-radius: 5rem;
+    font-weight: 700;
+}
+
+body {
+    background-color: #020122; /* Deep Navy */
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.quiz-container {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Circle Buttons */
+.circle-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #ffd700;
+    background: linear-gradient(145deg, #0d0d6e, #000033);
+    color: gold;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+#time-left {
+    font-size: 2rem;
+    color: #ffd700;
+    vertical-align: middle;
+}
+
+/* Question Styling */
+.question-box {
+    border: 2px solid #3c50b1;
+    background: linear-gradient(to right, #000033, #1a1a7c, #000033);
+    padding: 20px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    box-shadow: 0 0 15px rgba(60, 80, 177, 0.5);
+}
+
+/* Options Grid */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.option-btn {
+    background: linear-gradient(to right, #000033, #0d0d6e);
+    border: 1px solid #3c50b1;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.2s;
+}
+
+.option-btn:hover {
+    background: #ffd700;
+    color: black;
+}
+
+.correct-text {
+    color: #00ff00 !important; /* Green text for correct answer */
+    font-weight: bold;
+}
+
+#next-btn, #finish-btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    border-radius: 10px;
+    background: gold;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geography - Indus Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/1a28f22896.js" crossorigin="anonymous"></script>
+</head>
+</head>
+<body>
+
+    <div id="header">
+        <div id="logo">
+            <p>Indus Valley</p>
+        </div>
+        <a href="index.html" class="inactive">Home</a>
+        <a href="discovery.html" class="inactive">Discovery</a>
+        <a href="geo.html" class="active">Geography</a>
+        <a href="bricks.html" class="inactive">Architecture</a>
+        <a href="artifacts.html" class="inactive">Artifacts</a>
+        <a href="sports.html" class="inactive">Sports</a>
+        <a href="society.html" class="inactive">Society</a>
+        <a href="decline.html" class="inactive">Decline</a>
+        <a href="quiz.html" class="inactive">Quiz</a>
+    </div>
+
+    <div id="map-section">
+        <h1 class="map-title">The Ancient World</h1>
+        <div id="map-wrapper">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <div class="trade-container">
+            <h1 class="page-title">The Mercantile Powerhouse</h1>
+            <p class="page-desc">Visualizing the production and global connections of the Indus Civilization.</p>
+
+            <div class="trade-main-grid">
+                
+                <div class="economy-summary">
+                    <h2>Economic Pillars</h2>
+                    <div class="pillar-card">
+                        <i class="fa-solid fa-wheat-awn"></i>
+                        <div>
+                            <h3>Agriculture</h3>
+                            <p>Wheat and Barley were the core commodities and barter currency.</p>
+                        </div>
+                    </div>
+                    <div class="pillar-card">
+                        <i class="fa-solid fa-gem"></i>
+                        <div>
+                            <h3>Manufacturing</h3>
+                            <p>Factory-level production of Beads, Jewelry, and standardized Seals.</p>
+                        </div>
+                    </div>
+                    <div class="pillar-card">
+                        <i class="fa-solid fa-anchor"></i>
+                        <div>
+                            <h3>Maritime Trade</h3>
+                            <p>Connection from the Persian Gulf to the Indian coast.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="colorful-graphs">
+                        <h2>Trade Balance (Estimated Surplus)</h2>
+                        
+                        <div class="graph-box">
+                            <div class="bar-row">
+                                <span class="label">Beads (Exports)</span>
+                                <div class="full-bar"><div class="bar green" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="label">Cotton (Exports)</span>
+                                <div class="full-bar"><div class="bar green" style="width: 85%;"></div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="label">Lapis Lazuli (Imports)</span>
+                                <div class="full-bar"><div class="bar red" style="width: 20%;"></div></div>
+                            </div>
+                            <div class="bar-row">
+                                <span class="label">Copper (Imports)</span>
+                                <div class="full-bar"><div class="bar red" style="width: 45%;"></div></div>
+                            </div>
+                        </div>
+                        
+                        <p class="graph-legend">
+                            <span class="leg-item"><i class="fa-solid fa-square-full green-icon"></i> Surplus/High Output</span>
+                            <span class="leg-item"><i class="fa-solid fa-square-full red-icon"></i> Deficit/Import</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="trade-map-visual">
+                    <h2>Historical Routes Map</h2>
+                    <div class="map-wrap">
+                        <img src="y3.jpeg" alt="Map of IVC Trade Routes">
+                    </div>
+                    <p class="map-caption">Historical visualization of the Maritime (Blue), Overland (Red), and River (Green) trade routes connecting Meluhha to the ancient world.</p>
+                </div>
+            </div>
+
+            <div class="trade-footer-box">
+                <h2>The Barter System</h2>
+                <p>Instead of coins, the economy operated on <b>Barter</b>. Trade fairness was enforced by incredibly precise stone weights (Chert), ensuring standardized values from the Persian Gulf to Afghanistan.</p>
+            </div>
+        </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>
