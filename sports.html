@@ -26,78 +26,80 @@
             <a href="decline.html" class="inactive">Decline</a>
             <a href="quiz.html" class="inactive">Quiz</a>
         </div>
-
-        <div class="top-ui">
-            <div class="health-box">
-                <p>PLAYER</p>
-                <div class="health-bar">
-                    <div id="playerHealth"></div>
+        <div id="main-content">
+            <div class="top-ui">
+                <div class="health-box">
+                    <p>PLAYER</p>
+                    <div class="health-bar">
+                        <div id="playerHealth"></div>
+                    </div>
+                </div>
+    
+                <div class="score-box">
+                    <h1 id="score">0</h1>
+                    <p>SCORE</p>
+                </div>
+    
+                <div class="health-box">
+                    <p>AI</p>
+                    <div class="health-bar">
+                        <div id="aiHealth"></div>
+                    </div>
                 </div>
             </div>
-
-            <div class="score-box">
-                <h1 id="score">0</h1>
-                <p>SCORE</p>
-            </div>
-
-            <div class="health-box">
-                <p>AI</p>
-                <div class="health-bar">
-                    <div id="aiHealth"></div>
+    
+            <div class="game-world">
+    
+                <div class="sun"></div>
+    
+                <div class="tree tree1">
+                    <div class="top"></div>
+                    <div class="stem"></div>
                 </div>
+    
+                <div class="tree tree2">
+                    <div class="top"></div>
+                    <div class="stem"></div>
+                </div>
+    
+                <div class="bench"></div>
+    
+                <div class="lights"></div>
+    
+                <div class="crowd"></div>
+    
+                <div class="arena">
+    
+                    <div id="player" class="fighter player">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arm left-arm"></div>
+                        <div class="arm right-arm"></div>
+                        <div class="leg left-leg"></div>
+                        <div class="leg right-leg"></div>
+                    </div>
+    
+                    <div id="enemy" class="fighter enemy">
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arm left-arm"></div>
+                        <div class="arm right-arm"></div>
+                        <div class="leg left-leg"></div>
+                        <div class="leg right-leg"></div>
+                    </div>
+    
+                </div>
+    
             </div>
+    
+            <div class="controls">
+                <button id="pushBtn">PUSH</button>
+            </div>
+    
+            <div id="message"></div>
+
         </div>
-
-        <div class="game-world">
-
-            <div class="sun"></div>
-
-            <div class="tree tree1">
-                <div class="top"></div>
-                <div class="stem"></div>
-            </div>
-
-            <div class="tree tree2">
-                <div class="top"></div>
-                <div class="stem"></div>
-            </div>
-
-            <div class="bench"></div>
-
-            <div class="lights"></div>
-
-            <div class="crowd"></div>
-
-            <div class="arena">
-
-                <div id="player" class="fighter player">
-                    <div class="head"></div>
-                    <div class="body"></div>
-                    <div class="arm left-arm"></div>
-                    <div class="arm right-arm"></div>
-                    <div class="leg left-leg"></div>
-                    <div class="leg right-leg"></div>
-                </div>
-
-                <div id="enemy" class="fighter enemy">
-                    <div class="head"></div>
-                    <div class="body"></div>
-                    <div class="arm left-arm"></div>
-                    <div class="arm right-arm"></div>
-                    <div class="leg left-leg"></div>
-                    <div class="leg right-leg"></div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="controls">
-            <button id="pushBtn">PUSH</button>
-        </div>
-
-        <div id="message"></div>
-
+        
         <script src="sports.js"></script>
     </body>
 </html>
