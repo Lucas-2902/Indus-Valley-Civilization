@@ -28,26 +28,28 @@
 
         <div class="quiz-container">
             <div class="controls">
-                <button id="lang-toggle" class="circle-btn">हि</button>
-                <div id="timer-sec">
-                    <button id="start-timer" class="circle-btn">▶</button>
+                <button id="lang-toggle" class="circle-btn" title="Switch Language">हि</button>
+                <div id="timer-container">
+                    <button id="start-timer" class="circle-btn"><i class="fa-solid fa-play"></i></button>
                     <span id="time-left">30</span>
                 </div>
             </div>
-    
+
             <div class="question-box">
-                <p id="question-text">Press Start to Begin</p>
+                <p id="question-text">Loading question...</p>
             </div>
-    
+
             <div class="options-grid">
-                <button class="option-btn" onclick="checkAnswer(0)"><span class="opt-text"></span></button>
-                <button class="option-btn" onclick="checkAnswer(1)"><span class="opt-text"></span></button>
-                <button class="option-btn" onclick="checkAnswer(2)"><span class="opt-text"></span></button>
-                <button class="option-btn" onclick="checkAnswer(3)"><span class="opt-text"></span></button>
+                <button class="option-btn" onclick="checkAnswer(0)"><span class="label">A:</span> <span class="opt-text"></span></button>
+                <button class="option-btn" onclick="checkAnswer(1)"><span class="label">B:</span> <span class="opt-text"></span></button>
+                <button class="option-btn" onclick="checkAnswer(2)"><span class="label">C:</span> <span class="opt-text"></span></button>
+                <button class="option-btn" onclick="checkAnswer(3)"><span class="label">D:</span> <span class="opt-text"></span></button>
             </div>
-    
-            <button id="next-btn" onclick="nextQuestion()" style="display:none">Next Question</button>
-            <button id="finish-btn" onclick="finishQuiz()" style="display:none">Thank You!</button>
+
+            <div class="footer-controls">
+                <button id="next-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
+                <button id="finish-btn" onclick="finishQuiz()" style="display: none;">Thank You!</button>
+            </div>
         </div>
     
         <script src="https://www.youtube.com/iframe_api"></script>
