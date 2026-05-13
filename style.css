@@ -793,6 +793,10 @@ button:hover {
 }
 
 /* Sports page */
+#main-content {
+    margin-top: 10vh;
+}
+
 .top-ui {
     position:absolute;
     top: 10px;
