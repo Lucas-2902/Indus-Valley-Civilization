@@ -805,6 +805,7 @@ button:hover {
 }
 
 .health-box{
+    margin-top: 10vh;
     width:30%;
 }
 
@@ -828,6 +829,7 @@ button:hover {
 }
 
 .score-box{
+    margin-top: 10vh;
     text-align:center;
 }
 
