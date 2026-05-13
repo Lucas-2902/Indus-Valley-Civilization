@@ -793,124 +793,253 @@ button:hover {
 }
 
 /* Sports page */
-:root {
-    --sky: #87ceeb;
-    --sand: #d4b483;
-    --brick: #8b5e34;
-}
-.game-world {
-    position: relative;
-    width: 100vw;
-    height: 90vh;
-    background: var(--sky);
-    overflow: hidden;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.cloud {
-    position: absolute;
-    background: white;
-    width: 150px;
-    height: 40px;
-    border-radius: 0;
-    box-shadow: 20px 20px 0 white, -20px 10px 0 white, 40px 5px 0 white;
-    opacity: 0.8;
-    animation: moveClouds 20s linear infinite;
-}
-@keyframes moveClouds {
-    from { left: -200px; }
-    to { left: 100vw; }
-}
-
-.city-bg {
-    position: absolute;
-    bottom: 30vh;
+.top-ui {
+    position:absolute;
+    top: 10px;
     width: 100%;
-    height: 20vh;
-    background-image: 
-        linear-gradient(90deg, transparent 0% 10%, #6e4a2a 10% 20%, transparent 20% 35%, #5a3d22 35% 55%, transparent 55% 70%, #6e4a2a 70% 90%, transparent 90%),
-        linear-gradient(90deg, #8b5e34 0% 25%, #7a522e 25% 50%, #8b5e34 50% 75%, #7a522e 75% 100%);
-    background-size: 200px 100%, 100% 50px;
-    background-repeat: repeat-x;
-    z-index: 1;
-}
-.arena-box {
-    position: absolute;
-    bottom: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80vw;
-    height: 30vh;
-    background: var(--sand);
-    border: 10px solid var(--brick);
-    box-shadow: 0 0 0 10px #3d2b1f;
-    z-index: 5;
+    display:flex;
+    justify-content:space-around;
+    z-index:100;
+    color:white;
+    text-shadow:2px 2px black;
 }
 
-.pixel-man {
-    position: absolute;
-    bottom: 20px;
-    width: 120px;
-    height: 180px;
-    transition: left 0.1s linear, transform 0.5s ease-in;
-    z-index: 10;
+.health-box{
+    width:30%;
 }
-.head-box {
-    width: 60px;
-    height: 60px;
-    background: #f5d0a9;
-    margin: 0 auto;
-    position: relative;
-    border: 4px solid #000;
+
+.health-bar{
+    width:100%;
+    height:24px;
+    background:#222;
+    border:3px solid white;
 }
-.eye { width: 8px; height: 8px; background: #000; position: absolute; top: 15px; }
-.eye.left { left: 10px; }
-.eye.right { right: 10px; }
-.mouth { width: 20px; height: 4px; background: #000; position: absolute; bottom: 15px; left: 20px; }
-.ear { width: 10px; height: 15px; background: #f5d0a9; border: 3px solid #000; position: absolute; top: 20px; }
-.ear.left { left: -13px; }
-.ear.right { right: -13px; }
 
-.body-box {
-    width: 90px;
-    height: 100px;
-    background: #e74c3c;
-    border: 4px solid #000;
-    margin: -4px auto 0;
-    position: relative;
+#playerHealth{
+    width:100%;
+    height:100%;
+    background:lime;
 }
-.pixel-man.ai .body-box { background: #2980b9; }
 
-.hand { width: 40px; height: 15px; background: #f5d0a9; border: 3px solid #000; position: absolute; top: 30px; }
-.pixel-man.player .hand { right: -45px; animation: punchR 0.2s infinite alternate; }
-.pixel-man.ai .hand { left: -45px; animation: punchL 0.2s infinite alternate; }
-
-@keyframes punchR { from { transform: translateX(0); } to { transform: translateX(10px); } }
-@keyframes punchL { from { transform: translateX(0); } to { transform: translateX(-10px); } }
-
-.falling { transform: translateY(500px) rotate(45deg); opacity: 0; }
-
-.shove-ui {
-    position: fixed;
-    bottom: 10vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 20;
+#aiHealth{
+    width:100%;
+    height:100%;
+    background:red;
 }
-.shove-btn {
-    padding: 3vh 15vw;
-    font-size: 5vh;
-    background: #e67e22;
-    color: white;
-    border: 6px solid #d35400;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 8px 0 #a04000;
+
+.score-box{
+    text-align:center;
 }
-.shove-btn:active {
-    transform: translateY(4px); 
-    box-shadow: 0 4px 0 #a04000;
+
+.game-world{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    background:
+    linear-gradient(#7ec8ff 0%, #bde8ff 45%, #4caf50 45%, #2e7d32 100%);
+}
+
+.sun{
+    position:absolute;
+    top:40px;
+    right:80px;
+    width:100px;
+    height:100px;
+    background:yellow;
+    border-radius:50%;
+    box-shadow:0 0 50px yellow;
+}
+
+.tree{
+    position:absolute;
+    bottom:230px;
+}
+
+.tree .top{
+    width:90px;
+    height:90px;
+    background:#2e7d32;
+    border-radius:50%;
+}
+
+.tree .stem{
+    width:25px;
+    height:100px;
+    background:#5d4037;
+    margin:auto;
+}
+
+.tree1{
+    left:5%;
+}
+
+.tree2{
+    right:8%;
+}
+
+.bench{
+    position:absolute;
+    bottom:230px;
+    left:40%;
+    width:120px;
+    height:20px;
+    background:#6d4c41;
+}
+
+.bench::before,
+.bench::after{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:40px;
+    background:#3e2723;
+    top:20px;
+}
+
+.bench::before{
+    left:10px;
+}
+
+.bench::after{
+    right:10px;
+}
+
+.arena{
+    position:absolute;
+    bottom:70px;
+    left:50%;
+    transform:translateX(-50%);
+    width:80%;
+    height:180px;
+    background:#d7b37c;
+    border:10px solid #5d4037;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(0,0,0,.5);
+}
+
+.fighter{
+    position:absolute;
+    bottom:10px;
+    width:110px;
+    height:170px;
+    transition:left .08s linear;
+}
+
+.head{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#f1c27d;
+    position:absolute;
+    top:0;
+    left:30px;
+    border:3px solid black;
+}
+
+.body{
+    width:70px;
+    height:80px;
+    position:absolute;
+    top:50px;
+    left:20px;
+    border-radius:10px;
+}
+
+.player .body{
+    background:#ff3d3d;
+}
+
+.enemy .body{
+    background:#2979ff;
+}
+
+.arm{
+    width:15px;
+    height:65px;
+    background:#f1c27d;
+    position:absolute;
+    top:55px;
+    border-radius:10px;
+    animation:punch .2s infinite alternate;
+}
+
+.left-arm{
+    left:5px;
+}
+
+.right-arm{
+    right:5px;
+}
+
+.leg{
+    width:18px;
+    height:60px;
+    background:#222;
+    position:absolute;
+    bottom:0;
+    border-radius:10px;
+}
+
+.left-leg{
+    left:30px;
+}
+
+.right-leg{
+    right:30px;
+}
+
+@keyframes punch{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(18deg);
+    }
+}
+
+.controls{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    z-index:100;
+}
+
+#pushBtn{
+    padding:25px 90px;
+    font-size:38px;
+    border:none;
+    border-radius:20px;
+    background:#ff5a00;
+    color:white;
+    font-weight:bold;
+    box-shadow:0 8px #a83800;
+}
+
+#pushBtn:active{
+    transform:translateY(4px);
+    box-shadow:0 4px #a83800;
+}
+
+#message{
+    position:absolute;
+    top:42%;
+    width:100%;
+    text-align:center;
+    font-size:70px;
+    color:white;
+    text-shadow:4px 4px black;
+    z-index:200;
+}
+
+.fall{
+    transform:
+    rotate(90deg)
+    translateY(400px);
+    opacity:0;
+    transition:1s;
 }
 
 /* Decline page */
