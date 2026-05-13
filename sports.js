@@ -101,7 +101,7 @@ setInterval(()=>{
     }
 
     playerForce *= 0.95;
-    aiForce *= 0.90;
+    aiForce *= 0.93;
 
     let totalForce = playerForce - aiForce;
 
