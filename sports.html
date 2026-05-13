@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Facts - Indus Valley Civilization</title>
+        <title>Sports - Indus Valley Civilization</title>
 
         <link rel="stylesheet" href="style.css">
     </head>
@@ -22,46 +22,81 @@
             <a href="bricks.html" class="inactive">Architecture</a>
             <a href="artifacts.html" class="inactive">Artifacts</a>
             <a href="sports.html" class="active">Sports</a>
+            <a href="society.html" class="inactive">Society</a>
             <a href="decline.html" class="inactive">Decline</a>
             <a href="quiz.html" class="inactive">Quiz</a>
         </div>
 
-        <div class="ui-layer">
-            <div class="power-bar"><div id="player-power"></div></div>
-            <div class="power-bar"><div id="ai-power"></div></div>
-        </div>
-
-        <div class="game-world">
-            <div class="cloud" style="top: 10vh; animation-delay: 0s;"></div>
-            <div class="cloud" style="top: 20vh; animation-delay: -5s;"></div>
-            <div class="cloud" style="top: 5vh; animation-delay: -12s;"></div>
-
-            <div class="city-bg"></div>
-
-            <div class="arena-box" id="ring">
-                <div id="playerMan" class="pixel-man player">
-                    <div class="head-box">
-                        <div class="ear left"></div><div class="ear right"></div>
-                        <div class="eye left"></div><div class="eye right"></div>
-                        <div class="mouth"></div>
-                    </div>
-                    <div class="body-box"><div class="hand"></div></div>
+        <div class="top-ui">
+            <div class="health-box">
+                <p>PLAYER</p>
+                <div class="health-bar">
+                    <div id="playerHealth"></div>
                 </div>
+            </div>
 
-                <div id="aiMan" class="pixel-man ai">
-                    <div class="head-box">
-                        <div class="ear left"></div><div class="ear right"></div>
-                        <div class="eye left"></div><div class="eye right"></div>
-                        <div class="mouth"></div>
-                    </div>
-                    <div class="body-box"><div class="hand"></div></div>
+            <div class="score-box">
+                <h1 id="score">0</h1>
+                <p>SCORE</p>
+            </div>
+
+            <div class="health-box">
+                <p>AI</p>
+                <div class="health-bar">
+                    <div id="aiHealth"></div>
                 </div>
             </div>
         </div>
 
-        <div class="shove-ui">
-            <button class="shove-btn" onmousedown="push()" ontouchstart="push()">PUSH!!</button>
+        <div class="game-world">
+
+            <div class="sun"></div>
+
+            <div class="tree tree1">
+                <div class="top"></div>
+                <div class="stem"></div>
+            </div>
+
+            <div class="tree tree2">
+                <div class="top"></div>
+                <div class="stem"></div>
+            </div>
+
+            <div class="bench"></div>
+
+            <div class="lights"></div>
+
+            <div class="crowd"></div>
+
+            <div class="arena">
+
+                <div id="player" class="fighter player">
+                    <div class="head"></div>
+                    <div class="body"></div>
+                    <div class="arm left-arm"></div>
+                    <div class="arm right-arm"></div>
+                    <div class="leg left-leg"></div>
+                    <div class="leg right-leg"></div>
+                </div>
+
+                <div id="enemy" class="fighter enemy">
+                    <div class="head"></div>
+                    <div class="body"></div>
+                    <div class="arm left-arm"></div>
+                    <div class="arm right-arm"></div>
+                    <div class="leg left-leg"></div>
+                    <div class="leg right-leg"></div>
+                </div>
+
+            </div>
+
         </div>
+
+        <div class="controls">
+            <button id="pushBtn">PUSH</button>
+        </div>
+
+        <div id="message"></div>
 
         <script src="sports.js"></script>
     </body>
