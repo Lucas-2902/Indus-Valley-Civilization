@@ -32,17 +32,29 @@ function loadQuestion() {
     questionEl.innerText = isHindi ? q.hi : q.en;
     optionTexts.forEach((el, i) => {
         el.innerText = q.options[i];
-        el.parentElement.classList.remove('correct-text');
+        el.parentElement.classList.remove('correct-text', 'wrong-text');
         el.parentElement.disabled = false;
     });
     document.getElementById('next-btn').style.display = 'none';
+    document.getElementById('finish-btn').style.display = 'none';
 }
 
 function checkAnswer(selected) {
     clearInterval(timer);
-    const correctIdx = questions[currentIdx].correct;
-    optionTexts[correctIdx].parentElement.classList.add('correct-text');
-    
+    const correctIdx = questions[currentIdx].correct - 1; // FIXED indexing
+
+    if (selected >= 0) {
+        if (selected === correctIdx) {
+            optionTexts[selected].parentElement.classList.add('correct-text');
+        } else {
+            optionTexts[selected].parentElement.classList.add('wrong-text');
+            optionTexts[correctIdx].parentElement.classList.add('correct-text');
+        }
+    } else {
+        // Time ran out, just show correct answer
+        optionTexts[correctIdx].parentElement.classList.add('correct-text');
+    }
+
     document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
 
     if (currentIdx < questions.length - 1) {
