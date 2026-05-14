@@ -87,9 +87,7 @@
                     }
                 }, 100);
             }
-            window.onload = () => {
-                playPart();
-            };
+            document.addEventListener("click", playPart, { once: true });
         </script>
     </body>
 </html>
