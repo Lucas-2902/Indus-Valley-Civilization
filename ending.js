@@ -6,11 +6,9 @@ function toggleMusic() {
         window.location.href = "index.html";
     }
 }
-
-window.onload = () => {
+document.addEventListener("click", 
     const music = document.getElementById('bg-music');
     music.volume = 0.5;
     music.play().catch(() => {
-        console.log("Music waiting for user interaction...");
-    });
-};
+    console.log("Music waiting for user interaction...");
+});, { once: true });
