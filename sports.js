@@ -8,10 +8,8 @@ let gameOver = false;
 
 let score = 0;
 
-
 let playerForce = 0;
 let aiForce = 0;
-
 
 let clicks = 0;
 let cps = 0;
@@ -27,6 +25,8 @@ const msg = document.getElementById("message");
 
 const btn = document.getElementById("pushBtn");
 
+const arena = document.querySelector(".arena");
+
 function update(){
 
     player.style.left = playerPos + "%";
@@ -40,29 +40,49 @@ function update(){
 
 update();
 
+/* ================= PUSH ================= */
+
 function push(){
 
     if(gameOver) return;
 
     clicks++;
 
-    playerForce += 2.15;
+    playerForce += 2.3;
 
-    if(playerForce > 16){
-        playerForce = 16;
+    if(playerForce > 18){
+        playerForce = 18;
     }
 
-    aiHealth -= 0.45;
+    aiHealth -= 0.5;
 
     if(aiHealth < 0){
         aiHealth = 0;
     }
 
     score += 1;
+
+    /* SHAKE EFFECT */
+
+    arena.classList.add("shake");
+
+    setTimeout(()=>{
+        arena.classList.remove("shake");
+    },100);
+
+    /* PLAYER ANIMATION */
+
+    player.style.transform = "translateY(-8px)";
+
+    setTimeout(()=>{
+        player.style.transform = "translateY(0px)";
+    },100);
 }
 
 btn.addEventListener("mousedown", push);
 btn.addEventListener("touchstart", push);
+
+/* ================= CLICK SPEED ================= */
 
 setInterval(()=>{
 
@@ -71,6 +91,8 @@ setInterval(()=>{
     clicks = 0;
 
 },1000);
+
+/* ================= GAME LOOP ================= */
 
 setInterval(()=>{
 
@@ -83,15 +105,15 @@ setInterval(()=>{
     }
 
     if(cps > 6){
-        aiDifficulty = 3.6;
+        aiDifficulty = 3.8;
     }
 
     if(cps > 8){
-        aiDifficulty = 4;
+        aiDifficulty = 4.5;
     }
 
     if(enemyPos > 70){
-        aiDifficulty += 0.8;
+        aiDifficulty += 1;
     }
 
     aiForce += aiDifficulty * 0.12;
@@ -108,14 +130,30 @@ setInterval(()=>{
     playerPos += totalForce * 0.05;
     enemyPos += totalForce * 0.05;
 
+    /* DAMAGE */
+
     if(totalForce > 0){
 
         aiHealth -= totalForce * 0.04;
 
+        enemy.style.transform = "translateX(4px)";
+
+        setTimeout(()=>{
+            enemy.style.transform = "translateX(0)";
+        },50);
+
     }else{
 
         playerHealth -= Math.abs(totalForce) * 0.04;
+
+        player.style.transform = "translateX(-4px)";
+
+        setTimeout(()=>{
+            player.style.transform = "translateX(0)";
+        },50);
     }
+
+    /* LIMITS */
 
     if(playerHealth < 0){
         playerHealth = 0;
@@ -131,6 +169,8 @@ setInterval(()=>{
 
 },16);
 
+/* ================= WIN CHECK ================= */
+
 function checkWin(){
 
     if(enemyPos > 82 || aiHealth <= 0){
@@ -141,11 +181,11 @@ function checkWin(){
 
         msg.innerText = "YOU WIN";
 
+        createVictoryFlash();
+
         setTimeout(()=>{
-
             location.reload();
-
-        },3000);
+        },3500);
     }
 
     if(playerPos < -8 || playerHealth <= 0){
@@ -156,12 +196,32 @@ function checkWin(){
 
         msg.innerText = "BOT WINS";
 
+        createLoseFlash();
+
         setTimeout(()=>{
-
             location.reload();
-
-        },3000);
+        },3500);
     }
+}
+
+/* ================= EFFECTS ================= */
+
+function createVictoryFlash(){
+
+    document.body.style.background = "white";
+
+    setTimeout(()=>{
+        document.body.style.background = "black";
+    },120);
+}
+
+function createLoseFlash(){
+
+    document.body.style.background = "#400";
+
+    setTimeout(()=>{
+        document.body.style.background = "black";
+    },120);
 }
 
 update();
