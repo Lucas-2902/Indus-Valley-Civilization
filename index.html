@@ -72,21 +72,24 @@
         </div>
 
         <script>
-        const audio = document.getElementById("audio");
-
-        function playPart() {
-            audio.currentTime = 6;
-            audio.play();
-        
-            const stopAt = 15;
-        
-            const interval = setInterval(() => {
-                if (audio.currentTime >= stopAt) {
-                    audio.pause();
-                    clearInterval(interval);
-                }
-            }, 100);
-        }
+            const audio = document.getElementById("audio");
+    
+            function playPart() {
+                audio.currentTime = 6;
+                audio.play();
+            
+                const stopAt = 15;
+            
+                const interval = setInterval(() => {
+                    if (audio.currentTime >= stopAt) {
+                        audio.pause();
+                        clearInterval(interval);
+                    }
+                }, 100);
+            }
+            window.onload = () => {
+                playPart();
+            };
         </script>
     </body>
 </html>
