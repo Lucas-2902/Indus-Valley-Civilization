@@ -41,7 +41,7 @@ function loadQuestion() {
 
 function checkAnswer(selected) {
     clearInterval(timer);
-    const correctIdx = questions[currentIdx].correct - 1; // FIXED indexing
+    const correctIdx = questions[currentIdx].correct - 1;
 
     if (selected >= 0) {
         if (selected === correctIdx) {
@@ -51,7 +51,6 @@ function checkAnswer(selected) {
             optionTexts[correctIdx].parentElement.classList.add('correct-text');
         }
     } else {
-        // Time ran out, just show correct answer
         optionTexts[correctIdx].parentElement.classList.add('correct-text');
     }
 
