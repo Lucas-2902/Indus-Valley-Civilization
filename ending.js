@@ -7,9 +7,13 @@ function toggleMusic() {
     }
 }
 
-document.addEventListener("click", 
+document.addEventListener("click", () => {
     const music = document.getElementById('bg-music');
+
     music.volume = 0.5;
+
     music.play().catch(() => {
-    console.log("Music waiting for user interaction...");
-});, { once: true });
+        console.log("Music waiting for user interaction...");
+    });
+
+}, { once: true });
