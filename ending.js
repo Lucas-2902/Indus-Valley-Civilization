@@ -6,6 +6,7 @@ function toggleMusic() {
         window.location.href = "index.html";
     }
 }
+
 document.addEventListener("click", 
     const music = document.getElementById('bg-music');
     music.volume = 0.5;
