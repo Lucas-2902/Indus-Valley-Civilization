@@ -20,6 +20,8 @@
     <body>
         <script src="https://kit.fontawesome.com/1a28f22896.js" crossorigin="anonymous"></script>
 
+        <audio id="audio" src="boreendo.mp3"></audio>
+
         <div id="header">
             <div id="logo">
                 <p>Indus Valley</p>
@@ -68,5 +70,23 @@
                 </a>
             </div>
         </div>
+
+        <script>
+        const audio = document.getElementById("audio");
+
+        function playPart() {
+            audio.currentTime = 6;
+            audio.play();
+        
+            const stopAt = 15;
+        
+            const interval = setInterval(() => {
+                if (audio.currentTime >= stopAt) {
+                    audio.pause();
+                    clearInterval(interval);
+                }
+            }, 100);
+        }
+        </script>
     </body>
 </html>
