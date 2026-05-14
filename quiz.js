@@ -16,10 +16,8 @@ const questions = [
     { en: "Which was the largest city of Indus Valley?", hi: "सिंधु घाटी का सबसे बड़ा शहर कौन सा था?", options: ["Mohenjo-daro", "Harrapa", "Lothal", "Kalibangan"], correct: 2 }
 ];
 
-let currentIdx = 0;
-let isHindi = false;
-let timer;
-let timeLeft = 30;
+const kbcClock = new Audio("kbc-clock.mp3");
+kbcClock.loop = true;
 
 const questionEl = document.getElementById('question-text');
 const optionTexts = document.querySelectorAll('.opt-text');
@@ -29,18 +27,29 @@ const startBtn = document.getElementById('start-timer');
 
 function loadQuestion() {
     const q = questions[currentIdx];
+
     questionEl.innerText = isHindi ? q.hi : q.en;
+
     optionTexts.forEach((el, i) => {
         el.innerText = q.options[i];
         el.parentElement.classList.remove('correct-text', 'wrong-text');
         el.parentElement.disabled = false;
     });
+
     document.getElementById('next-btn').style.display = 'none';
     document.getElementById('finish-btn').style.display = 'none';
 }
 
+function stopClockSound() {
+    kbcClock.pause();
+    kbcClock.currentTime = 0;
+}
+
 function checkAnswer(selected) {
     clearInterval(timer);
+
+    stopClockSound();
+
     const correctIdx = questions[currentIdx].correct - 1;
 
     if (selected >= 0) {
@@ -77,13 +86,22 @@ langBtn.addEventListener('click', () => {
 
 startBtn.addEventListener('click', () => {
     clearInterval(timer);
+
     timeLeft = 30;
     timeDisplay.innerText = timeLeft;
+
+    kbcClock.currentTime = 0;
+    kbcClock.play();
+
     timer = setInterval(() => {
         timeLeft--;
         timeDisplay.innerText = timeLeft;
+
         if (timeLeft <= 0) {
             clearInterval(timer);
+
+            stopClockSound();
+
             checkAnswer(-1);
         }
     }, 1000);
@@ -91,11 +109,15 @@ startBtn.addEventListener('click', () => {
 
 function resetTimer() {
     clearInterval(timer);
+
+    stopClockSound();
+
     timeLeft = 30;
     timeDisplay.innerText = timeLeft;
 }
 
 function finishQuiz() {
+    stopClockSound();
     window.location.href = "ending.html";
 }
 
