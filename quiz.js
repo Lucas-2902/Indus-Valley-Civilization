@@ -16,14 +16,21 @@ const questions = [
     { en: "Which was the largest city of Indus Valley?", hi: "सिंधु घाटी का सबसे बड़ा शहर कौन सा था?", options: ["Mohenjo-daro", "Harrapa", "Lothal", "Kalibangan"], correct: 2 }
 ];
 
+let currentIdx = 0;
+let isHindi = false;
+let timer;
+let timeLeft = 30;
+
 const kbcClock = new Audio("kbc-clock.mp3");
 kbcClock.loop = true;
 
-const questionEl = document.getElementById('question-text');
-const optionTexts = document.querySelectorAll('.opt-text');
-const langBtn = document.getElementById('lang-toggle');
-const timeDisplay = document.getElementById('time-left');
-const startBtn = document.getElementById('start-timer');
+const kbcQuestion = new Audio("kbc-question.mp3");
+
+const questionEl = document.getElementById("question-text");
+const optionTexts = document.querySelectorAll(".opt-text");
+const langBtn = document.getElementById("lang-toggle");
+const timeDisplay = document.getElementById("time-left");
+const startBtn = document.getElementById("start-timer");
 
 function loadQuestion() {
     const q = questions[currentIdx];
@@ -32,12 +39,12 @@ function loadQuestion() {
 
     optionTexts.forEach((el, i) => {
         el.innerText = q.options[i];
-        el.parentElement.classList.remove('correct-text', 'wrong-text');
+        el.parentElement.classList.remove("correct-text", "wrong-text");
         el.parentElement.disabled = false;
     });
 
-    document.getElementById('next-btn').style.display = 'none';
-    document.getElementById('finish-btn').style.display = 'none';
+    document.getElementById("next-btn").style.display = "none";
+    document.getElementById("finish-btn").style.display = "none";
 }
 
 function stopClockSound() {
@@ -45,46 +52,62 @@ function stopClockSound() {
     kbcClock.currentTime = 0;
 }
 
+function resetTimer() {
+    clearInterval(timer);
+    stopClockSound();
+    timeLeft = 30;
+    timeDisplay.innerText = timeLeft;
+}
+
 function checkAnswer(selected) {
     clearInterval(timer);
-
     stopClockSound();
 
     const correctIdx = questions[currentIdx].correct - 1;
 
     if (selected >= 0) {
         if (selected === correctIdx) {
-            optionTexts[selected].parentElement.classList.add('correct-text');
+            optionTexts[selected].parentElement.classList.add("correct-text");
         } else {
-            optionTexts[selected].parentElement.classList.add('wrong-text');
-            optionTexts[correctIdx].parentElement.classList.add('correct-text');
+            optionTexts[selected].parentElement.classList.add("wrong-text");
+            optionTexts[correctIdx].parentElement.classList.add("correct-text");
         }
     } else {
-        optionTexts[correctIdx].parentElement.classList.add('correct-text');
+        optionTexts[correctIdx].parentElement.classList.add("correct-text");
     }
 
-    document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+    document.querySelectorAll(".option-btn").forEach(btn => {
+        btn.disabled = true;
+    });
 
     if (currentIdx < questions.length - 1) {
-        document.getElementById('next-btn').style.display = 'inline-block';
+        document.getElementById("next-btn").style.display = "inline-block";
     } else {
-        document.getElementById('finish-btn').style.display = 'inline-block';
+        document.getElementById("finish-btn").style.display = "inline-block";
     }
 }
 
 function nextQuestion() {
+    kbcQuestion.currentTime = 0;
+    kbcQuestion.play();
+
     currentIdx++;
     resetTimer();
     loadQuestion();
 }
 
-langBtn.addEventListener('click', () => {
+function finishQuiz() {
+    stopClockSound();
+    window.location.href = "ending.html";
+}
+
+langBtn.addEventListener("click", () => {
     isHindi = !isHindi;
     langBtn.innerText = isHindi ? "EN" : "हि";
     questionEl.innerText = isHindi ? questions[currentIdx].hi : questions[currentIdx].en;
 });
 
-startBtn.addEventListener('click', () => {
+startBtn.addEventListener("click", () => {
     clearInterval(timer);
 
     timeLeft = 30;
@@ -99,26 +122,10 @@ startBtn.addEventListener('click', () => {
 
         if (timeLeft <= 0) {
             clearInterval(timer);
-
             stopClockSound();
-
             checkAnswer(-1);
         }
     }, 1000);
 });
-
-function resetTimer() {
-    clearInterval(timer);
-
-    stopClockSound();
-
-    timeLeft = 30;
-    timeDisplay.innerText = timeLeft;
-}
-
-function finishQuiz() {
-    stopClockSound();
-    window.location.href = "ending.html";
-}
 
 loadQuestion();
