@@ -793,44 +793,70 @@ button:hover {
 }
 
 /* Sports page */
-.top-ui {
+.top-ui{
     position:absolute;
-    top: 10px;
-    width: 100%;
+    top:15px;
+    width:100%;
     display:flex;
     justify-content:space-around;
-    z-index:100;
+    z-index:200;
     color:white;
     text-shadow:2px 2px black;
 }
 
 .health-box{
-    margin-top: 10vh;
+    margin-top:10vh;
     width:30%;
+}
+
+.health-box p{
+    font-size:1.3rem;
+    margin-bottom:8px;
 }
 
 .health-bar{
     width:100%;
-    height:24px;
-    background:#222;
-    border:3px solid white;
+    height:28px;
+    background:#2b1a0f;
+    border:4px solid #fff;
+    border-radius:20px;
+    overflow:hidden;
 }
 
 #playerHealth{
     width:100%;
     height:100%;
-    background:lime;
+    border-radius:20px;
+
+    background:
+    linear-gradient(to right,
+    #ffd166,
+    #ff6b00);
+
+    transition:.2s;
 }
 
 #aiHealth{
     width:100%;
     height:100%;
-    background:red;
+    border-radius:20px;
+
+    background:
+    linear-gradient(to right,
+    #7fb3ff,
+    #004cff);
+
+    transition:.2s;
 }
 
 .score-box{
-    margin-top: 10vh;
+    margin-top:10vh;
     text-align:center;
+}
+
+#score{
+    font-size:4rem;
+    color:#fff3d4;
 }
 
 .game-world{
@@ -838,163 +864,336 @@ button:hover {
     height:100vh;
     position:relative;
     overflow:hidden;
+
     background:
-    linear-gradient(#7ec8ff 0%, #bde8ff 45%, #4caf50 45%, #2e7d32 100%);
+    linear-gradient(to bottom,
+    #f7c97b 0%,
+    #d9984e 35%,
+    #8b5a2b 35%,
+    #5c3b1e 100%);
 }
 
 .sun{
     position:absolute;
-    top:40px;
-    right:80px;
-    width:100px;
-    height:100px;
-    background:yellow;
+    top:60px;
+    right:90px;
+
+    width:140px;
+    height:140px;
+
+    background:#ffcc33;
     border-radius:50%;
-    box-shadow:0 0 50px yellow;
+
+    box-shadow:
+    0 0 60px #ffcc33,
+    0 0 120px orange;
 }
 
-.tree{
+.temple{
     position:absolute;
-    bottom:230px;
+    bottom:260px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:520px;
+    height:230px;
+
+    background:#8d6740;
+
+    border:10px solid #5c3b1e;
+
+    border-radius:12px;
+
+    box-shadow:0 0 40px rgba(0,0,0,.5);
 }
 
-.tree .top{
-    width:90px;
-    height:90px;
-    background:#2e7d32;
-    border-radius:50%;
-}
-
-.tree .stem{
-    width:25px;
-    height:100px;
-    background:#5d4037;
-    margin:auto;
-}
-
-.tree1{
-    left:5%;
-}
-
-.tree2{
-    right:8%;
-}
-
-.bench{
-    position:absolute;
-    bottom:230px;
-    left:40%;
-    width:120px;
-    height:20px;
-    background:#6d4c41;
-}
-
-.bench::before,
-.bench::after{
+.temple::before{
     content:"";
+
     position:absolute;
-    width:10px;
+
+    top:-70px;
+    left:70px;
+
+    width:360px;
+    height:80px;
+
+    background:#a87946;
+
+    clip-path:polygon(0 100%,50% 0,100% 100%);
+}
+
+.pillar{
+    position:absolute;
+    bottom:170px;
+
+    width:80px;
+    height:260px;
+
+    background:#b3834f;
+
+    border:8px solid #5c3b1e;
+
+    box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+.pillar::before{
+    content:"";
+
+    position:absolute;
+
+    top:-20px;
+    left:-10px;
+
+    width:84px;
+    height:20px;
+
+    background:#6b4423;
+}
+
+.pillar1{
+    left:10%;
+}
+
+.pillar2{
+    right:10%;
+}
+
+.fire{
+    position:absolute;
+    bottom:250px;
+
+    width:40px;
     height:40px;
-    background:#3e2723;
-    top:20px;
+
+    border-radius:50%;
+
+    background:orange;
+
+    box-shadow:
+    0 0 20px orange,
+    0 0 50px red;
+
+    animation:flicker .15s infinite alternate;
 }
 
-.bench::before{
-    left:10px;
+.fire1{
+    left:28%;
 }
 
-.bench::after{
-    right:10px;
+.fire2{
+    right:28%;
+}
+
+@keyframes flicker{
+    from{
+        transform:scale(1);
+        opacity:.8;
+    }
+
+    to{
+        transform:scale(1.25);
+        opacity:1;
+    }
+}
+
+.crowd{
+    position:absolute;
+    bottom:260px;
+    width:100%;
+    height:120px;
+
+    background:
+    repeating-radial-gradient(circle,
+    #1a0f07 0 12px,
+    transparent 12px 22px);
+
+    opacity:.5;
+}
+
+.dust{
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,.08) 1px,
+    transparent 1px);
+
+    background-size:40px 40px;
+
+    opacity:.2;
+
+    animation:dustMove 10s linear infinite;
+}
+
+@keyframes dustMove{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-200px);
+    }
 }
 
 .arena{
     position:absolute;
+
     bottom:70px;
     left:50%;
+
     transform:translateX(-50%);
-    width:80%;
-    height:180px;
-    background:#d7b37c;
-    border:10px solid #5d4037;
-    border-radius:20px;
-    box-shadow:0 0 30px rgba(0,0,0,.5);
+
+    width:82%;
+    height:240px;
+
+    background:
+    radial-gradient(circle at center,
+    #d6a15f 0%,
+    #b97838 100%);
+
+    border:12px solid #5c3b1e;
+
+    border-radius:30px;
+
+    box-shadow:
+    inset 0 0 40px rgba(0,0,0,.4),
+    0 0 40px rgba(0,0,0,.7);
 }
 
 .fighter{
     position:absolute;
-    bottom:10px;
-    width:110px;
-    height:170px;
+
+    bottom:20px;
+
+    width:140px;
+    height:190px;
+
     transition:left .08s linear;
 }
 
 .head{
-    width:50px;
-    height:50px;
+    width:60px;
+    height:60px;
+
     border-radius:50%;
-    background:#f1c27d;
+
+    background:#c68642;
+
     position:absolute;
+
     top:0;
-    left:30px;
-    border:3px solid black;
+    left:40px;
+
+    border:4px solid #2b1a0f;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.4);
+}
+
+.head::before{
+    content:"";
+
+    position:absolute;
+
+    top:-8px;
+    left:-6px;
+
+    width:70px;
+    height:24px;
+
+    background:#d97706;
+
+    border-radius:20px;
+}
+
+.head::after{
+    content:"";
+
+    position:absolute;
+
+    top:22px;
+    left:15px;
+
+    width:30px;
+    height:6px;
+
+    background:black;
+
+    border-radius:10px;
 }
 
 .body{
-    width:70px;
-    height:80px;
+    width:80px;
+    height:95px;
+
     position:absolute;
-    top:50px;
-    left:20px;
-    border-radius:10px;
+
+    top:58px;
+    left:30px;
+
+    border-radius:20px;
+
+    border:4px solid #2b1a0f;
 }
 
 .player .body{
-    background:#ff3d3d;
+    background:#a83232;
 }
 
 .enemy .body{
-    background:#2979ff;
+    background:#2554a3;
 }
 
 .arm{
-    width:15px;
-    height:65px;
-    background:#f1c27d;
+    width:18px;
+    height:70px;
+
+    background:#c68642;
+
     position:absolute;
-    top:55px;
-    border-radius:10px;
-    animation:punch .2s infinite alternate;
+
+    top:65px;
+
+    border-radius:20px;
+
+    animation:punch .25s infinite alternate;
 }
 
 .left-arm{
-    left:5px;
+    left:8px;
 }
 
 .right-arm{
-    right:5px;
+    right:8px;
 }
 
 .leg{
-    width:18px;
-    height:60px;
-    background:#222;
+    width:22px;
+    height:75px;
+
+    background:#3b2a1f;
+
     position:absolute;
+
     bottom:0;
-    border-radius:10px;
+
+    border-radius:15px;
 }
 
 .left-leg{
-    left:30px;
+    left:42px;
 }
 
 .right-leg{
-    right:30px;
+    right:42px;
 }
 
 @keyframes punch{
     from{
         transform:rotate(0deg);
     }
+
     to{
         transform:rotate(18deg);
     }
@@ -1002,46 +1201,106 @@ button:hover {
 
 .controls{
     position:absolute;
-    bottom:10px;
+    bottom:20px;
     width:100%;
     display:flex;
     justify-content:center;
-    z-index:100;
+    z-index:300;
 }
 
 #pushBtn{
-    padding:25px 90px;
-    font-size:38px;
+    padding:22px 110px;
+
+    font-size:42px;
+
     border:none;
+
     border-radius:20px;
-    background:#ff5a00;
+
+    background:
+    linear-gradient(to bottom,
+    #ffb347,
+    #ff5a00);
+
     color:white;
-    font-weight:bold;
-    box-shadow:0 8px #a83800;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px #8f2f00,
+    0 0 30px rgba(255,90,0,.5);
+
+    transition:.1s;
+}
+
+#pushBtn:hover{
+    transform:scale(1.05);
 }
 
 #pushBtn:active{
-    transform:translateY(4px);
-    box-shadow:0 4px #a83800;
+    transform:translateY(5px);
+    box-shadow:
+    0 5px #8f2f00;
 }
 
 #message{
     position:absolute;
+
     top:42%;
     width:100%;
+
     text-align:center;
-    font-size:70px;
+
+    font-size:6rem;
+
     color:white;
-    text-shadow:4px 4px black;
-    z-index:200;
+
+    text-shadow:
+    0 0 20px black,
+    4px 4px black;
+
+    z-index:500;
 }
 
 .fall{
     transform:
     rotate(90deg)
     translateY(400px);
+
     opacity:0;
+
     transition:1s;
+}
+
+.shake{
+    animation:shake .12s;
+}
+
+@keyframes shake{
+
+    0%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+    25%{
+        transform:translateX(-49%) translateY(-2px);
+    }
+
+    50%{
+        transform:translateX(-51%) translateY(2px);
+    }
+
+    75%{
+        transform:translateX(-49%) translateY(-1px);
+    }
+
+    100%{
+        transform:translateX(-50%) translateY(0);
+    }
 }
 
 /* Decline page */
