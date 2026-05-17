@@ -21,7 +21,7 @@ body {
     text-align: center;
     font-size: 2rem;
     opacity: 0;
-    animation: kbcFade 18s linear infinite;
+    animation: kbcFade 20s linear infinite;
 }
 
 @keyframes kbcFade {
@@ -84,4 +84,8 @@ body {
 
 .credit-name:nth-child(9) {
     animation-delay: 16s;
+}
+
+.credit-name:nth-child(10) {
+    animation-delay: 18s;
 }
