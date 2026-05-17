@@ -21,7 +21,7 @@ body {
     text-align: center;
     font-size: 2rem;
     opacity: 0;
-    animation: kbcFade 16s infinite;
+    animation: kbcFade 18s infinite;
 }
 
 @keyframes kbcFade {
