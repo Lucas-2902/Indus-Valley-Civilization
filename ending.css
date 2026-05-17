@@ -25,12 +25,28 @@ body {
 }
 
 @keyframes kbcFade {
-    0%, 10% {
+    0% {
         opacity: 0;
+        transform: translate(-50%, -40%);
     }
 
-    2%, 8% {
+    10% {
         opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    30% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
