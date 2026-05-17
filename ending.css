@@ -21,7 +21,7 @@ body {
     text-align: center;
     font-size: 2rem;
     opacity: 0;
-    animation: kbcFade 18s infinite;
+    animation: kbcFade 18s linear infinite;
 }
 
 @keyframes kbcFade {
@@ -30,17 +30,17 @@ body {
         transform: translate(-50%, -40%);
     }
 
-    10% {
+    3% {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
 
-    20% {
+    8% {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
 
-    30% {
+    11% {
         opacity: 0;
         transform: translate(-50%, -60%);
     }
